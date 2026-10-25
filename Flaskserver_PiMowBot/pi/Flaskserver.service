@@ -1,0 +1,17 @@
+[Unit]
+Description=MowerFlaskserver
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+WorkingDirectory=/home/pi/Mower/Flaskserver
+ExecStart=/usr/bin/python /home/pi/Mower/Flaskserver/Flaskserver.py
+User=pi
+Restart=always
+RestartSec=2
+StandardOutput=append:/home/pi/Mower/Flaskserver/Flaskserver.log
+StandardError=append:/home/pi/Mower/Flaskserver/Flaskserver.log
+SyslogIdentifier=Flaskserver
+
+[Install]
+WantedBy=multi-user.target
